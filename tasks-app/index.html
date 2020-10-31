@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Aplicación de tareas con AJAX y PHP</title>
+
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="css/bootstrap.lux.min.css">
+
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a href="#" class="navbar-brand">Tasks App</a>
+
+		<ul class="navbar-nav ml-auto">
+			<form class="form-inline my-2 my-lg-0">
+				<input type="search" id="search" class="form-control mr-sm-2" placeholder="Busca tu tarea">
+				<button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+				
+			</form>
+		</ul>
+	</nav>
+	<!-- la clase css p-4 le agrega un padding al contenedor, para mejorar el centrado en este caso. En este caso se le agrega el padding a todos los lados -->
+	<div class="container p-4">
+		<div class="row">
+			<div class="col-md-5">
+				<div class="card">
+					<div class="card-body">
+						<!-- No lleva action por que se va a procesar desde js -->
+						<form id="task-form">
+							<input type="hidden" id="taskId"> 
+							<div class="form-group">
+								<input type="text" name="" id="name" placeholder="task Name" class="form-control">
+							</div>
+							<div class="form-group">
+								<textarea name="" id="description" cols="30" rows="10" class="form-control" placeholder="task description"></textarea>
+							</div>
+							<button type="subimt" class="btn btn-primary btn-block text-center">Save Task</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- table-sm es para una tabla small -->
+			<div class="col-md-7">
+				<div class="card">
+					<div class="card-body my-4" id="task-result">
+						<ul id="container">
+
+						</ul>
+					</div>
+				</div>
+				<table class="table table-bordered table-sm">
+					<thead>
+						<tr>
+							<td>Id</td>
+							<td>Nombre</td>
+							<td>Descripción</td>
+						</tr>
+					</thead>
+					<tbody id="tasks"></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!--<//script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>-->
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="app.js"></script>
+
+</body>
+</html>

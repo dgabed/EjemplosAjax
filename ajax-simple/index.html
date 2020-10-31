@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax Simple</title>
+</head>
+<body>
+	<button onclick="sendRequest()">
+		Envía un Request AJAX
+	</button>
+	
+	<h1 id="title"></h1>
+
+
+	<script>
+	function sendRequest(){
+		var theObject = new XMLHttpRequest();
+		theObject.open('POST', 'backend.php', true);
+		//Codifica los datos que se envían al server
+		theObject.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+		//Este método se encarga de ver cuando estamos recibiendo algo desde el servidor
+		theObject.onreadystatechange = function(){
+			//console.log(theObject.responseText);
+			document.getElementById('title').innerHTML = theObject.responseText;
+		}
+		theObject.send('username=David');
+	}
+	</script>
+</body>
+</html>
